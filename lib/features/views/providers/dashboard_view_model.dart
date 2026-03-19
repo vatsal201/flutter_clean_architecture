@@ -40,7 +40,7 @@ class DashboardViewModel extends BaseModel {
         .where(
           (voter) => voter.voterNameEn
               .toLowerCase()
-              .contains(queryController.text.toLowerCase()),
+                .contains(queryController.text.trim().toLowerCase()),
         )
         .toList();
     _filteredVoters.clear();
