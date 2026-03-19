@@ -11,5 +11,5 @@ class NetworkInfoImpl implements NetworkInfo {
   @override
   Future<bool> get isConnected => connectivity
       .checkConnectivity()
-      .then((value) => !value.contains(ConnectivityResult.none));
+      .then((value) => value != ConnectivityResult.none);
 }

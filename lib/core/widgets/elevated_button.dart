@@ -40,32 +40,30 @@ class EElevatedButton extends StatelessWidget {
     return Container(
       margin: const EdgeInsets.all(5),
       width: MediaQuery.of(context).size.width,
-      child: ElevatedButton(
+      child: MaterialButton(
+        materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
         onPressed: () {
           if (isProgress) return;
           onPressHandler();
         },
-        style: ElevatedButton.styleFrom(
-          tapTargetSize: MaterialTapTargetSize.shrinkWrap,
-          elevation: elevation,
-          backgroundColor: isProgress
-              ? Theme.of(context).disabledColor
-              : color ?? Theme.of(context).primaryColor,
-          shape: RoundedRectangleBorder(
-            side: (darkBorder || lightBorder)
-                ? BorderSide(
-                    width: 2,
-                    color: darkBorder
-                        ? borderColor ?? Theme.of(context).disabledColor
-                        : Theme.of(context).canvasColor.withValues(alpha: 0.8),
-                  )
-                : BorderSide.none,
-            borderRadius: BorderRadius.circular(
-              radius ?? 6,
-            ),
+        elevation: elevation,
+        color: isProgress
+            ? Theme.of(context).disabledColor
+            : color ?? Theme.of(context).primaryColor,
+        shape: RoundedRectangleBorder(
+          side: (darkBorder || lightBorder)
+              ? BorderSide(
+                  width: 2,
+                  color: darkBorder
+                      ? borderColor ?? Theme.of(context).disabledColor
+                      : Theme.of(context).canvasColor.withOpacity(0.8),
+                )
+              : BorderSide.none,
+          borderRadius: BorderRadius.circular(
+            radius ?? 6,
           ),
-          padding: const EdgeInsets.symmetric(vertical: 15, horizontal: 10),
         ),
+        padding: const EdgeInsets.symmetric(vertical: 15, horizontal: 10),
         child: Row(
           crossAxisAlignment: CrossAxisAlignment.center,
           mainAxisAlignment: MainAxisAlignment.center,

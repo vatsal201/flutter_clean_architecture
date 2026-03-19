@@ -32,7 +32,7 @@ class ETitle extends StatelessWidget {
       overflow: overflow,
       style: TextStyle(
         fontFamily: fontFamily,
-        color: color ?? Theme.of(context).disabledColor.withValues(alpha: 0.6),
+        color: color ?? Theme.of(context).disabledColor.withOpacity(0.6),
         fontWeight: fontWeight ?? FontWeight.normal,
         fontSize: fontSize ?? 20,
         letterSpacing: letterSpacing,

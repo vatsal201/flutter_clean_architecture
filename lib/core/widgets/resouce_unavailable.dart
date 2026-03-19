@@ -27,7 +27,7 @@ class ResourceNotFound extends StatelessWidget {
             Icon(
               icon ?? Icons.info,
               size: iconSize,
-              color: Theme.of(context).colorScheme.error.withValues(alpha: 0.7),
+              color: Theme.of(context).colorScheme.error.withOpacity(0.7),
             ),
           const SizedBox(height: 5),
           Text(
@@ -35,7 +35,7 @@ class ResourceNotFound extends StatelessWidget {
             textAlign: TextAlign.center,
             style: TextStyle(
               color: textColor ??
-                  Theme.of(context).colorScheme.error,
+                  Theme.of(context).colorScheme.error.withOpacity(1),
             ),
           ),
         ],
