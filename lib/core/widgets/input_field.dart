@@ -72,7 +72,7 @@ class EInputForm extends StatelessWidget {
                     textAlign: textAlign,
                     style: TextStyle(
                       fontSize: 14,
-                      color: Theme.of(context).disabledColor.withOpacity(0.6),
+                      color: Theme.of(context).disabledColor.withValues(alpha: 0.6),
                     ),
                   ),
                 ),
@@ -102,7 +102,7 @@ class EInputForm extends StatelessWidget {
       style: TextStyle(
         fontWeight: fontWeight ?? FontWeight.normal,
         fontSize: fontSize,
-        color: Theme.of(context).disabledColor.withOpacity(0.6),
+        color: Theme.of(context).disabledColor.withValues(alpha: 0.6),
       ),
       decoration: InputDecoration(
         contentPadding:

@@ -22,10 +22,8 @@ class CustomPopup {
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(15),
           ),
-          child: WillPopScope(
-            onWillPop: () {
-              return Future.value(false);
-            },
+          child: PopScope(
+            canPop: false,
             child: Padding(
               padding: const EdgeInsets.all(10.0),
               child: Column(
@@ -42,7 +40,7 @@ class CustomPopup {
                               ? Theme.of(context)
                                   .colorScheme
                                   .error
-                                  .withOpacity(0.4)
+                                  .withValues(alpha: 0.4)
                               : Theme.of(context).disabledColor,
                         ),
                         onPressed: () {
@@ -53,7 +51,7 @@ class CustomPopup {
                   Container(
                     padding: const EdgeInsets.all(15),
                     decoration: BoxDecoration(
-                      color: Theme.of(context).primaryColor.withOpacity(0.1),
+                      color: Theme.of(context).primaryColor.withValues(alpha: 0.1),
                       borderRadius: BorderRadius.circular(10),
                     ),
                     child: Icon(
@@ -100,12 +98,12 @@ class CustomPopup {
                         ),
                       ElevatedButton(
                         style: ButtonStyle(
-                          shape: MaterialStateProperty.all(
+                          shape: WidgetStateProperty.all(
                             RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(50),
                             ),
                           ),
-                          backgroundColor: MaterialStateProperty.all<Color>(
+                          backgroundColor: WidgetStateProperty.all<Color>(
                             isError == true
                                 ? Theme.of(context).colorScheme.error
                                 : Theme.of(context).primaryColor,
@@ -196,15 +194,15 @@ class CustomPopup {
   }
 
   static Future<bool> exitApp(BuildContext context) async {
-    final _res = await CustomPopup.common(
+    final res = await CustomPopup.common(
       context,
       icon: Icons.exit_to_app_rounded,
       title: "Do you want to exit?",
       confirmBtnTitle: "Exit",
       subtitle: null,
     );
-    if (_res == null) return false;
-    return _res;
+    if (res == null) return false;
+    return res;
   }
 
   static Future<void> textInputDialog(

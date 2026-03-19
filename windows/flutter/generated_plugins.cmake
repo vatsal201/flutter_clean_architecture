@@ -3,7 +3,12 @@
 #
 
 list(APPEND FLUTTER_PLUGIN_LIST
-  connectivity_plus_windows
+  awesome_notifications
+  cloud_firestore
+  connectivity_plus
+  firebase_auth
+  firebase_core
+  firebase_storage
   url_launcher_windows
 )
 
